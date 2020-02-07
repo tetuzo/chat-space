@@ -27,10 +27,7 @@ Things you may want to cover:
 ## usersテーブル
 |Column|Type|Options|
 |------|----|-------|
-|name|string|null: false|
-|email|string|null: false|
-|password|string|null: false|
-|group_id|integer|null: false, foreign_key: true|
+
 ### Association
 - has_many :messages
 - has_many :groups_users
@@ -57,10 +54,7 @@ Things you may want to cover:
 - belongs_to :group
 
 ## groupsテーブル
-|Column|Type|Options|
-|------|----|-------|
-|name|string|null: false|
-|user_id|integer|null: false, foreign_key: true|
+
 ### Association
 - has_many :messages
 - has_many :groups_users
