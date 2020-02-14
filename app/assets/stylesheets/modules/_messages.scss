@@ -87,6 +87,7 @@
       bottom: 0;
       padding: 20px 40px 20px 50px;
       .new_message {
+        width: 100%;
         display: flex;
         .input-box {
           width: 100%;
@@ -95,21 +96,26 @@
 
           &__text {
             width: 100%;
+          }
 
-            &__image {
-              position: absolute;
-              top: 10px;
-              right: 10px;
+            .form__mask {
+              position: relative;
 
-              .far.fa-image {
-                font-size: 25px;
-              }
+              &__image {
+                position: absolute;
+                top: 10px;
+                right: 10px;
 
-              &__file {
-              display: none;
+                .icon {
+                  font-size: 25px;
+                }
+
+                .image-file {
+                display: none;
+                }
               }
             }
-          }
+          
         }
 
          .submit-btn {
