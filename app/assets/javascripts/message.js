@@ -78,7 +78,7 @@ $(function(){
     });
   })
     var reloadMessages = function() {
-      last_message_id = $('.message:last').data("message-id");
+      var last_message_id = $('.message:last').data("message-id");
       $.ajax({
         url: "api/messages",
         type: 'get',
@@ -91,7 +91,7 @@ $(function(){
           $.each(messages, function(i, message) {
             insertHTML += buildHTML(message)
           });
-          $('.chat-main__message-list').append(insertHTML);
+          $('.messages').append(insertHTML);
           $('.chat-main__message-list').animate({ scrollTop: $('.chat-main__message-list')[0].scrollHeight});
         }
       })
