@@ -1,53 +1,54 @@
 $(function(){
   var buildHTML = function(message) {
     if (message.body && message.image) {
+      console.log(message.image)
       var html = `
-      <div class="message" data-message-id=${message.id}>
-        <div class="upper-message">
-          <div class="upper-message__user-name">
+      <div class="chat-main__message-list__messagehaml" data-message-id=${message.id}>
+        <div class="chat-main__message-list__message__post">
+          <div class="chat-main__message-list__message__post__name">
             ${message.user_name}
           </div>
-          <div class="upper-message__date">
+          <div class="chat-main__message-list__message__post__day">
             ${message.created_at}
           </div>
         </div>
-        <div class="lower-message">
-          <p class="lower-message__content">
+        <div class="chat-main__message-list__message__comment">
+          <p class="chat-main__message-list__message__comment__body">
             ${message.body}
           </p>
-          <img src= ${message.image} class="lower-message__image">
+            <img class="chat-main__message-list__message__comment__image" src=${message.image}>
         </div>
       </div>`
     } else if (message.body) {
       var html = `
-      <div class="message" data-message-id=${message.id}>
-        <div class="upper-message">
-          <div class="upper-message__user-name">
+      <div class="chat-main__message-list__messagehaml" data-message-id=${message.id}>
+        <div class="chat-main__message-list__message__post">
+          <div class="chat-main__message-list__message__post__name">
             ${message.user_name}
           </div>
-          <div class="upper-message__date">
+          <div class="chat-main__message-list__message__post__day">
             ${message.created_at}
           </div>
         </div>
-        <div class="lower-message">
-          <p class="lower-message__content">
+        <div class="chat-main__message-list__message__comment">
+          <p class="chat-main__message-list__message__comment__body">
             ${message.body}
           </p>
         </div>
       </div>`
     } else if (message.image) {
       var html = `
-      <div class="message" data-message-id=${message.id}>
-        <div class="upper-message">
-          <div class="upper-message__user-name">
+      <div class="chat-main__message-list__messagehaml" data-message-id=${message.id}>
+        <div class="chat-main__message-list__message__post">
+          <div class="chat-main__message-list__message__post__name">
             ${message.user_name}
           </div>
-          <div class="upper-message__date">
+          <div class="chat-main__message-list__message__post__day">
             ${message.created_at}
           </div>
         </div>
-        <div class="lower-message">
-          <img src=${message.image} class="lower-message__image" >
+        <div class="chat-main__message-list__message__comment">
+          <img src=${message.image} class="chat-main__message-list__message__comment__image">
         </div>
       </div>`
     };
@@ -78,7 +79,8 @@ $(function(){
     });
   })
     var reloadMessages = function() {
-      var last_message_id = $('.message:last').data("message-id");
+      var last_message_id = $('.chat-main__message-list__messagehaml:last').data("message-id");
+      console.log(last_message_id)
       $.ajax({
         url: "api/messages",
         type: 'get',
@@ -91,7 +93,7 @@ $(function(){
           $.each(messages, function(i, message) {
             insertHTML += buildHTML(message)
           });
-          $('.messages').append(insertHTML);
+          $('.chat-main__message-list').append(insertHTML);
           $('.chat-main__message-list').animate({ scrollTop: $('.chat-main__message-list')[0].scrollHeight});
         }
       })
