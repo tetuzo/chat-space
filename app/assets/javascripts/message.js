@@ -69,8 +69,8 @@ $(function(){
     })
     .done(function(data){
       var html = buildHTML(data);
-      $('.chat-main__message-list').append(html);
-      $('.chat-main__message-list').animate({ scrollTop: $('.chat-main__message-list')[0].scrollHeight});
+      $('.chat-main__message-list__messagehaml').append(html);
+      $('.chat-main__message-list__messagehaml').animate({ scrollTop: $('.chat-main__message-list__messagehaml')[0].scrollHeight});
       $('form')[0].reset();
       $('.submit-btn').prop('disabled', false);
     })
@@ -93,8 +93,8 @@ $(function(){
           $.each(messages, function(i, message) {
             insertHTML += buildHTML(message)
           });
-          $('.chat-main__message-list').append(insertHTML);
-          $('.chat-main__message-list').animate({ scrollTop: $('.chat-main__message-list')[0].scrollHeight});
+          $('.chat-main__message-list__messagehaml').append(insertHTML);
+          $('.chat-main__message-list__messagehaml').animate({ scrollTop: $('.chat-main__message-list__messagehaml')[0].scrollHeight});
         }
       })
       .fail(function() {
